@@ -40,31 +40,37 @@ let quizData = [
 //js Code:
 //calling the Q & A & Button using DOM 
 var questionEl =document.getElementById("question")
-var aText =document.getElementById("a")
-var bText =document.getElementById("b")
-var cText =document.getElementById("c")
-var dText =document.getElementById("d")
+var a_text =document.getElementById("a")
+var b_text =document.getElementById("b")
+var c_text =document.getElementById("c")
+var d_text =document.getElementById("d")
 var subButton =document.getElementById("subButton")
-//Current Question (index)
-let currentQuestion=0;
+//Current Quiz (index)
+let currentQuiz=0;
 
 loadQuiz();
 function loadQuiz(){
-	var currentQuizData= quizData[currentQuestion];
-	questionEl.innerText= currentQuizData.question;
-	aText.innerText= currentQuizData.a;
-	bText.innerText= currentQuizData.b;
-	cText.innerText= currentQuizData.c;
-	dText.innerText= currentQuizData.d;
+	var currentQuizData = quizData[currentQuiz];
+	questionEl.innerText = currentQuizData.question;
+	a_text.innerText = currentQuizData.a; //not working 
+	b_text.innerText = currentQuizData.b; //not working 
+	c_text.innerText = currentQuizData.c; //not working 
+	d_text.innerText = currentQuizData.d; //not working 
 
-	currentQuestion=++;
+	currentQuiz++;
 }
 //Using jQuery on click function
-subButton.on('click',function(){
-	currentQuizData;
-	if(currentQuizData < quizData.length){
+subButton.on('click',function(){  //why??
+	currentQuiz++;
 
+	if(currentQuiz < quizData.length){
+    loadQuiz();
 	}
+	else{
+		//we need to show result!!
+		alert("Quiz is Done")
+	}
+	
 })
 
 
