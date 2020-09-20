@@ -3,7 +3,7 @@ let quizData = [
 {
  question:"Most popular programming language in 2020 ?", 
  a:"Javascript",
- b:"C#" ,
+ b:"C#",
  c:"Python",
  d:"Java",
  correct:"c" 
@@ -40,29 +40,29 @@ let quizData = [
 //js Code:
 //calling the Q & A & Button using DOM 
 var questionEl =document.getElementById("question")
-var a_text =document.getElementById("a")
-var b_text =document.getElementById("b")
-var c_text =document.getElementById("c")
-var d_text =document.getElementById("d")
-var subButton =document.getElementById("subButton")
+var aText =document.getElementById("a")
+var bText =document.getElementById("b")
+var cText =document.getElementById("c")
+var dText =document.getElementById("d")
+// var subButton =document.getElementById("subButton")
+
 //Current Quiz (index)
 let currentQuiz=0;
-
+//load function to laod the Q and A
 loadQuiz();
 function loadQuiz(){
-	var currentQuizData = quizData[currentQuiz];
-	questionEl.innerText = currentQuizData.question;
-	a_text.innerText = currentQuizData.a; //not working 
-	b_text.innerText = currentQuizData.b; //not working 
-	c_text.innerText = currentQuizData.c; //not working 
-	d_text.innerText = currentQuizData.d; //not working 
+	var currentQuizData = quizData[currentQuiz]; //working
+	questionEl.innerText = currentQuizData.question; //working 
+	
+	aText.innerText = currentQuizData.a; 
+	bText.innerText = currentQuizData.b; 
+	cText.innerText = currentQuizData.c;  
+	dText.innerText = currentQuizData.d; 
 
 	currentQuiz++;
 }
 //Using jQuery on click function
-subButton.on('click',function(){  //why??
-	currentQuiz++;
-
+$('#subButton').on('click', function(e){ 
 	if(currentQuiz < quizData.length){
     loadQuiz();
 	}
