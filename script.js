@@ -46,11 +46,14 @@ var cText =document.getElementById("c")
 var dText =document.getElementById("d")
 // var subButton =document.getElementById("subButton")
 
-//Current Quiz (index)
-let currentQuiz=0;
+var currentQuiz=0; //Current Quiz (index)
+var answer = undefined;
+var score=0;
+
 //load function to laod the Q and A
 loadQuiz();
 function loadQuiz(){
+	// unselect()
 	var currentQuizData = quizData[currentQuiz]; //working
 	questionEl.innerText = currentQuizData.question; //working 
 	
@@ -61,16 +64,35 @@ function loadQuiz(){
 
 	currentQuiz++;
 }
+function selected(){
+    var answerEls= document.querySelectorAll(".answer")// yasmeen ; this method selects all the elements with the same class 	
+    answerEls.forEach((answerEl) =>{// using forEach to iterate over each answer with the class answer in answers ***
+    if(answerEl.checked){
+      answer = answerEl.id;
+    }  
+   });
+  return answer;
+}
+// function unselect(){  ///when we move to the next Q all options should not be selected.
+// 	answerEls.forEach((answerEl) =>{
+//       answerEl.checked =false;
+// }
+
 //Using jQuery on click function
 $('#subButton').on('click', function(e){ 
-	if(currentQuiz < quizData.length){
-    loadQuiz();
+  var answer=selected();
+	if(answer){ //when the user click an answer it will move to the next question.! 
+		if(answer === quizData[currentQuiz].correct){ //the user clicked the right answer
+			score++;
+		} //??
+		// currentQuiz++ //??
+       if(currentQuiz < quizData.length){ //to move to the next question
+         loadQuiz();}
+	     else{
+		 //we need to show result!!
+		 alert("Quiz is Done")}
 	}
-	else{
-		//we need to show result!!
-		alert("Quiz is Done")
-	}
-	
+			
 })
 
 
