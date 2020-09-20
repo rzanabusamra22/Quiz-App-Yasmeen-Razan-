@@ -45,13 +45,15 @@ var bText =document.getElementById("b")
 var cText =document.getElementById("c")
 var dText =document.getElementById("d")
 
-
+var answerEls= document.querySelectorAll(".answer")// yasmeen ; this method selects all the elements with the same class
+var quiz= document.getElementById("quiz")
 
 var currentQuiz=0;//Current Quiz (index)
 var score=0;
 //load function to laod the Q and A
 loadQuiz();
 function loadQuiz(){
+	unselect()
 	var currentQuizData = quizData[currentQuiz]; //working
 	questionEl.innerText = currentQuizData.question; //working 
 	
@@ -62,7 +64,6 @@ function loadQuiz(){
 }
 //To check witch answer is selected.
 function selected(){
-	var answerEls= document.querySelectorAll(".answer")// yasmeen ; this method selects all the elements with the same class
 	var answer = undefined;
     answerEls.forEach(function(answerEl){// using forEach to iterate over each answer with the class answer in answers
     if(answerEl.checked){
@@ -71,22 +72,30 @@ function selected(){
 });
     return answer;
 }
+function unselect(){
+    answerEls.forEach(function(answerEl){
+    answerEl.checked=false;    
+});
+}
 
 //Using jQuery on click function
 $('#subButton').on('click', function(e){ 
-	const answer= selected()
-	if(answer){      
-	currentQuiz++;
-	if(currentQuiz < quizData.length){
+	var answer= selected()
+	if(answer){ 
+	if(answer === quizData[currentQuiz].correct){
+		score++;
+	}
+     currentQuiz++;
+     if(currentQuiz < quizData.length){
 	  loadQuiz();
 	  }
 	  else{
-	  //we need to show result!!
-	  alert("Quiz is Done")
+	 	quiz.innerHTML ="<h2>You answered correctly at  $(score) / $(quizData.length) questions.</h2>"
+	 	// how to show the score ??
+	 	// select only one !!
+	 	//documentation. 
 	}	
-	}
-	
-	
+	}	
 })
 
 
