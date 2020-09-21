@@ -9,31 +9,31 @@ let quizData = [
  correct:"c" 
 }, {
  question:"What dose HTML stands for ?", 
- a:"Healthy Teanager Male Language",
- b:"Home Time Manage Life" ,
- c:"Happy Text Monday Life",
+ a:"Hyper Tag Markup Language",
+ b:"Hyperlinks Text Mark Language" ,
+ c:"Hyperlinking Text Marking Language",
  d:"Hyper Text Markup Language",
  correct:"d" 
 }, {
  question:"HTML is a programing language ?", 
- a:"YES",
- b:"NO" ,
+ a:"Yes",
+ b:"No" ,
  c:"Maybe",
- d:"I do not know",
+ d:"I have no idea",
  correct:"b" 
 }, {
- question:"A Syntax Error is ?", 
- a:"An error you will never find",
- b:"An error you find at the end of programing" ,
- c:"An error caused by language rules being broken",
- d:"An error due to user error",
- correct:"d" 
+ question:"What symbol indicates a tag?", 
+ a:"Curly brackets { }",
+ b:"Parentheses ( )" ,
+ c:"Angle brackets <>",
+ d:"Exclamation mark !",
+ correct:"c" 
 }, {
- question:"What does VR stands for ?", 
- a:"Virtual Reality",
- b:"Virtual Reactions" ,
- c:"Virtual Realistic",
- d:"Virtual Roundabouts",
+ question:"What does CSS stand for?", 
+ a:"Cascading Style Sheet",
+ b:"Creative Style System" ,
+ c:"Computing Style Sheet",
+ d:"Creative Styling Sheet",
  correct:"a" 
 }
 ]
@@ -91,14 +91,18 @@ $('#subButton').on('click', function(e){
 	  loadQuiz();
 	  }
 	  else{ //to display the score.
-	 	quiz.innerHTML ="<h2>You answered correctly at  $(score) / $(quizData.length) questions.</h2>"  
-	 	// how to show the score ??
-	 	// select only one !!
-	 	//documentation. 
+	    var length=quizData.length
+	    quiz.innerHTML = "<h2>You answered correctly at "+ score +" / "+ length +" questions.</h2>" /// Hamdallah and Qamer helped with this , I had syntax error and they point them out !
+
+	    var restart=document.createElement("button")
+	    $(restart).text("Restart")
+	    $(restart).on("click",function(){
+         location.reload();
+	    })
+	    $(restart).appendTo($("#quiz"))
 	}	
 	}	
 })
-
 
 
 
