@@ -6,35 +6,35 @@ let quizData = [
  b:"C#",
  c:"Python",
  d:"Java",
- correct:"c" 
+ correct:"c_text" 
 }, {
  question:"What dose HTML stands for ?", 
  a:"Hyper Tag Markup Language",
  b:"Hyperlinks Text Mark Language" ,
  c:"Hyperlinking Text Marking Language",
  d:"Hyper Text Markup Language",
- correct:"d" 
+ correct:"d_text" 
 }, {
  question:"HTML is a programing language ?", 
  a:"Yes",
  b:"No" ,
  c:"Maybe",
  d:"I have no idea",
- correct:"b" 
+ correct:"b_text" 
 }, {
  question:"What symbol indicates a tag?", 
  a:"Curly brackets { }",
  b:"Parentheses ( )" ,
  c:"Angle brackets <>",
  d:"Exclamation mark !",
- correct:"c" 
+ correct:"c_text" 
 }, {
  question:"What does CSS stand for?", 
  a:"Cascading Style Sheet",
  b:"Creative Style System" ,
  c:"Computing Style Sheet",
  d:"Creative Styling Sheet",
- correct:"a" 
+ correct:"a_text" 
 }
 ]
 //js Code:
@@ -92,12 +92,12 @@ $('#subButton').on('click', function(e){
 	  }
 	  else{ //to display the score.
 	    var length=quizData.length
-	    quiz.innerHTML = "<h2>You answered correctly at "+ score +" / "+ length +" questions.</h2>" /// Hamdallah and Qamer helped with this , I had syntax error and they point them out !
+	    quiz.innerHTML = "<h2>You answered correctly at "+ score +" / "+ length +" questions.</h2>" /// Hamdallah and Qamar helped with this ,                     I had syntax error and they point them out !
 
-	    var restart=document.createElement("button")
+	    var restart=document.createElement("button") //create a new button called restart  
 	    $(restart).text("Restart")
-	    $(restart).on("click",function(){
-         location.reload();
+	    $(restart).on("click",function(){ // when click on it , the page reload. 
+         location.reload(); //build in function that refresh the page 
 	    })
 	    $(restart).appendTo($("#quiz"))
 	}	
