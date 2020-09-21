@@ -9,7 +9,7 @@ let quizData = [
  correct:"c_text" 
 }, {
  question:"What dose HTML stands for ?", 
- a:"Hyper Tag Markup Language",
+ a:"Hyper Tag MakeUp Language",
  b:"Hyperlinks Text Mark Language" ,
  c:"Hyperlinking Text Marking Language",
  d:"Hyper Text Markup Language",
@@ -92,7 +92,7 @@ $('#subButton').on('click', function(e){
 	  }
 	  else{ //to display the score.
 	    var length=quizData.length
-	    quiz.innerHTML = "<h2>You answered correctly at "+ score +" / "+ length +" questions.</h2>" /// Hamdallah and Qamar helped with this ,                     I had syntax error and they point them out !
+	    quiz.innerHTML = "<h2>You answered correctly at "+ score +" / "+ length +" questions.</h2>" /// Hamdallah and Qamar helped with this , I had syntax error and they point them out !
 
 	    var restart=document.createElement("button") //create a new button called restart  
 	    $(restart).text("Restart")
